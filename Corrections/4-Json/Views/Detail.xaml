@@ -1,13 +1,13 @@
 ﻿<Page
-    x:Class="_3_Binding.Views.Detail"
+    x:Class="_4_Json.Views.Detail"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:_3_Binding.Views"
+    xmlns:local="using:_4_Json.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    xmlns:vm="using:_3_Binding.ViewModels">
+    xmlns:vm="using:_4_Json.ViewModels">
 
     <Page.DataContext>
         <vm:DetailViewModel />
