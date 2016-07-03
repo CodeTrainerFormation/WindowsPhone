@@ -1,0 +1,179 @@
+﻿<Page
+    x:Class="_2_XAML.Views.Detail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_2_XAML.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" MaxHeight="150">
+            <Image Source="ms-appx:///Assets/Images/food.jpg" Stretch="UniformToFill" />
+            <TextBlock Text="Nom du restaurant" TextWrapping="Wrap" Style="{ThemeResource HeaderTextBlockStyle}" VerticalAlignment="Bottom" Margin="5,0,0,5" />
+        </Grid>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <TextBlock Text="La carte" Margin="5,0,0,0" Style="{ThemeResource SubheaderTextBlockStyle}" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Margin="5" Grid.Row="0" Grid.Column="0" BorderBrush="{ThemeResource PhoneForegroundBrush}" BorderThickness="1">
+                        <StackPanel  >
+                            <StackPanel Orientation="Horizontal" Margin="2,2,0,0">
+                                <Image Source="http://lorempixel.com/48/48/food"  MaxWidth="48" HorizontalAlignment="Left" />
+                                <StackPanel Margin="5,0,0,0">
+                                    <TextBlock Text="Nom du plat" FontSize="{ThemeResource TextStyleLargeFontSize}" />
+                                    <TextBlock Text="19.99€" FontSize="{ThemeResource TextStyleMediumFontSize}" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2,0,0,0">
+                                <TextBlock FontSize="{ThemeResource TextStyleMediumFontSize}">
+                                    <Run Text="Note :" />
+                                    <Run Text="4.5" />
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="5" Grid.Row="0" Grid.Column="1" BorderBrush="{ThemeResource PhoneForegroundBrush}" BorderThickness="1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2,2,0,0">
+                                <Image Source="http://lorempixel.com/48/48/food" MaxWidth="48" HorizontalAlignment="Left" />
+                                <StackPanel Margin="5,0,0,0">
+                                    <TextBlock Text="Nom du plat" FontSize="{ThemeResource TextStyleLargeFontSize}" />
+                                    <TextBlock Text="14.99€" FontSize="{ThemeResource TextStyleMediumFontSize}" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2,0,0,0">
+                                <TextBlock FontSize="{ThemeResource TextStyleMediumFontSize}">
+                                    <Run Text="Note :" />
+                                    <Run Text="5.0" />
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="5" Grid.Row="1" Grid.Column="0" BorderBrush="{ThemeResource PhoneForegroundBrush}" BorderThickness="1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2,2,0,0">
+                                <Image Source="http://lorempixel.com/48/48/food" MaxWidth="48" HorizontalAlignment="Left" />
+                                <StackPanel Margin="5,0,0,0">
+                                    <TextBlock Text="Nom du plat" FontSize="{ThemeResource TextStyleLargeFontSize}" />
+                                    <TextBlock Text="17.99€" FontSize="{ThemeResource TextStyleMediumFontSize}" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2,0,0,0">
+                                <TextBlock FontSize="{ThemeResource TextStyleMediumFontSize}">
+                                    <Run Text="Note :" />
+                                    <Run Text="3.7" />
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="5" Grid.Row="1" Grid.Column="1" BorderBrush="{ThemeResource PhoneForegroundBrush}" BorderThickness="1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2,2,0,0">
+                                <Image Source="http://lorempixel.com/48/48/food" MaxWidth="48" HorizontalAlignment="Left" />
+                                <StackPanel Margin="5,0,0,0">
+                                    <TextBlock Text="Nom du plat" FontSize="{ThemeResource TextStyleLargeFontSize}" />
+                                    <TextBlock Text="23.99€" FontSize="{ThemeResource TextStyleMediumFontSize}" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="2,0,0,0">
+                                <TextBlock FontSize="{ThemeResource TextStyleMediumFontSize}">
+                                    <Run Text="Note :" />
+                                    <Run Text="5.0" />
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                <StackPanel>
+                    <TextBlock Text="Commentaires" Margin="5,0,0,0" Style="{ThemeResource SubheaderTextBlockStyle}" />
+                    <ListView>
+                        <ListViewItem Margin="0,10,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{ThemeResource ListViewEmptyStaticTextBlockStyle}">
+                                        <Run Text="John Doe" />
+                                        <Run Text="-" />
+                                        <Run Text="01/01/1970 13:37" />
+                                    </TextBlock>
+                                </StackPanel>
+                                <TextBlock Style="{ThemeResource ListViewItemContentTextBlockStyle}" 
+                                           TextWrapping="Wrap" 
+                                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis facilisis risus. Nam ligula dolor, vehicula id molestie convallis, semper ac tortor. Etiam sed ante faucibus nunc posuere eleifend. Vestibulum at volutpat ante. Phasellus venenatis, justo a congue aliquam, libero augue congue metus, id ultrices lorem libero vitae ex. Etiam ultricies ex libero, bibendum elementum turpis auctor ultrices. Ut quis sodales neque." />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Margin="0,10,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{ThemeResource ListViewEmptyStaticTextBlockStyle}">
+                                        <Run Text="John Doe" />
+                                        <Run Text="-" />
+                                        <Run Text="01/01/1970 13:37" />
+                                    </TextBlock>
+                                </StackPanel>
+                                <TextBlock Style="{ThemeResource ListViewItemContentTextBlockStyle}" 
+                                           TextWrapping="Wrap" 
+                                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis facilisis risus. Nam ligula dolor, vehicula id molestie convallis, semper ac tortor. Etiam sed ante faucibus nunc posuere eleifend. Vestibulum at volutpat ante. Phasellus venenatis, justo a congue aliquam, libero augue congue metus, id ultrices lorem libero vitae ex. Etiam ultricies ex libero, bibendum elementum turpis auctor ultrices. Ut quis sodales neque." />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Margin="0,10,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{ThemeResource ListViewEmptyStaticTextBlockStyle}">
+                                        <Run Text="John Doe" />
+                                        <Run Text="-" />
+                                        <Run Text="01/01/1970 13:37" />
+                                    </TextBlock>
+                                </StackPanel>
+                                <TextBlock Style="{ThemeResource ListViewItemContentTextBlockStyle}" 
+                                           TextWrapping="Wrap" 
+                                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis facilisis risus. Nam ligula dolor, vehicula id molestie convallis, semper ac tortor. Etiam sed ante faucibus nunc posuere eleifend. Vestibulum at volutpat ante. Phasellus venenatis, justo a congue aliquam, libero augue congue metus, id ultrices lorem libero vitae ex. Etiam ultricies ex libero, bibendum elementum turpis auctor ultrices. Ut quis sodales neque." />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Margin="0,10,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{ThemeResource ListViewEmptyStaticTextBlockStyle}">
+                                        <Run Text="John Doe" />
+                                        <Run Text="-" />
+                                        <Run Text="01/01/1970 13:37" />
+                                    </TextBlock>
+                                </StackPanel>
+                                <TextBlock Style="{ThemeResource ListViewItemContentTextBlockStyle}" 
+                                           TextWrapping="Wrap" 
+                                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis facilisis risus. Nam ligula dolor, vehicula id molestie convallis, semper ac tortor. Etiam sed ante faucibus nunc posuere eleifend. Vestibulum at volutpat ante. Phasellus venenatis, justo a congue aliquam, libero augue congue metus, id ultrices lorem libero vitae ex. Etiam ultricies ex libero, bibendum elementum turpis auctor ultrices. Ut quis sodales neque." />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Margin="0,10,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{ThemeResource ListViewEmptyStaticTextBlockStyle}">
+                                        <Run Text="John Doe" />
+                                        <Run Text="-" />
+                                        <Run Text="01/01/1970 13:37" />
+                                    </TextBlock>
+                                </StackPanel>
+                                <TextBlock Style="{ThemeResource ListViewItemContentTextBlockStyle}" 
+                                           TextWrapping="Wrap" 
+                                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis facilisis risus. Nam ligula dolor, vehicula id molestie convallis, semper ac tortor. Etiam sed ante faucibus nunc posuere eleifend. Vestibulum at volutpat ante. Phasellus venenatis, justo a congue aliquam, libero augue congue metus, id ultrices lorem libero vitae ex. Etiam ultricies ex libero, bibendum elementum turpis auctor ultrices. Ut quis sodales neque." />
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
