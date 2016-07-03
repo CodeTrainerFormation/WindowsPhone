@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4-Json", "4-Json\4-Json.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1-Discover", "1-Discover\1-Discover.csproj", "{70EA1A85-28A2-4183-9B81-6A8BEB35F9ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5-Collection", "5-Collection\5-Collection.csproj", "{98D4CD10-73DA-4C09-A940-1477F1EBCEED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,24 @@ Global
 		{70EA1A85-28A2-4183-9B81-6A8BEB35F9ED}.Release|x86.ActiveCfg = Release|x86
 		{70EA1A85-28A2-4183-9B81-6A8BEB35F9ED}.Release|x86.Build.0 = Release|x86
 		{70EA1A85-28A2-4183-9B81-6A8BEB35F9ED}.Release|x86.Deploy.0 = Release|x86
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|ARM.ActiveCfg = Debug|ARM
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|ARM.Build.0 = Debug|ARM
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|ARM.Deploy.0 = Debug|ARM
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|x86.ActiveCfg = Debug|x86
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|x86.Build.0 = Debug|x86
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Debug|x86.Deploy.0 = Debug|x86
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|ARM.ActiveCfg = Release|ARM
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|ARM.Build.0 = Release|ARM
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|ARM.Deploy.0 = Release|ARM
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|x86.ActiveCfg = Release|x86
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|x86.Build.0 = Release|x86
+		{98D4CD10-73DA-4C09-A940-1477F1EBCEED}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
