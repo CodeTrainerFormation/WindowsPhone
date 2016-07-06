@@ -9,6 +9,6 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="Click me" />
+        <Button Content="Click me" Style="{StaticResource EllipseButton}" />
     </Grid>
 </Page>
