@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="_8_Lifecycle.Views.Detail"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_8_Lifecycle.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:_8_Lifecycle.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Content="Back" Icon="Back" Click="Back_Click" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Page.BottomAppBar>
+        <AppBar>
+            <StackPanel HorizontalAlignment="Center">
+                <AppBarButton Icon="Add" Content="Add" Click="AddComment_Click" />
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+
+    <Page.DataContext>
+        <vm:DetailViewModel />
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel MaxHeight="250">
+                <Image Source="{Binding RestaurantSelected.PictureUri}" />
+            </StackPanel>
+            <TextBlock Foreground="White" FontSize="42" Text="{Binding RestaurantSelected.Name}" VerticalAlignment="Bottom" />
+        </Grid>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <TextBlock Text="La carte" Margin="5,0,0,0" FontSize="18" />
+                <GridView ItemsSource="{Binding RestaurantSelected.Menus}">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </GridView.ItemContainerStyle>
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="5">
+                                <StackPanel Orientation="Horizontal" Margin="2,2,0,0">
+                                    <Image Source="{Binding PictureUri}"  MaxWidth="48" HorizontalAlignment="Left" />
+                                    <StackPanel Margin="5,0,0,0">
+                                        <TextBlock Text="{Binding Name}" />
+                                        <TextBlock Text="{Binding Price}" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="2,0,0,0">
+                                    <TextBlock Text="Note :" />
+                                    <TextBlock Text="{Binding Rating}" Margin="5,0,0,0" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+                <StackPanel>
+                    <TextBlock Text="Commentaires" Margin="5,0,0,0" FontSize="18" />
+                    <ListView ItemsSource="{Binding RestaurantSelected.Comments}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock FontSize="16" >
+                                        <Run Text="{Binding Author.Firstname}" />
+                                        <Run Text="{Binding Author.Lastname}" />
+                                        </TextBlock>
+                                        <TextBlock Text=" - " FontSize="12" Margin="2,0,2,0" />
+                                        <TextBlock Text="{Binding CreatedAt}" FontSize="16" />
+                                    </StackPanel>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Content}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
