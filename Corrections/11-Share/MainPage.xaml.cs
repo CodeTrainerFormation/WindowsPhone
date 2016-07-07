@@ -32,6 +32,8 @@ namespace _11_Share
         {
             DataTransferManager dtm = DataTransferManager.GetForCurrentView();
             dtm.DataRequested += DataTransferManager_DataRequested;
+
+            // Permet de partager les données via la contrat de partage
             DataTransferManager.ShowShareUI();
         }
 
@@ -42,6 +44,15 @@ namespace _11_Share
 
             req.Data.Properties.Title = "Exemple de partage";
             req.Data.Properties.Description = "Bonjour de l'app Discover";
+        }
+
+        private async void LaunchApp_Click(object sender, RoutedEventArgs e)
+        {
+            // Utilise le protocol de la seconde app
+            var uriString = string.Concat("customapp:Detail/", tbDataToShare.Text);
+            var uri = new Uri(uriString);
+            // Permet de lancer la 2e app
+            await Windows.System.Launcher.LaunchUriAsync(uri);
         }
     }
 }

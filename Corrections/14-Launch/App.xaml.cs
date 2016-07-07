@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -17,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
-namespace _11_Share
+namespace _14_Launch
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -41,7 +42,6 @@ namespace _11_Share
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -97,6 +97,28 @@ namespace _11_Share
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        // Evenement levé lorsque l'application est activée
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            // Permet de vérifier que l'application a été lancée par un protocol (par une autre app)
+            if (args.Kind == ActivationKind.Protocol)
+            {
+                ProtocolActivatedEventArgs protocolArgs = (ProtocolActivatedEventArgs)args;
+                var rootFrame = new Frame();
+
+                // Permet de convertir la page demandée (string) en Type
+                var page = protocolArgs.Uri.Segments[0];
+                var pagePath = string.Concat("_14_Launch.Views.", page.Trim(new Char[] { '/' }));
+                Type t = Type.GetType(pagePath);
+
+                // Navigue vers la page demandée
+                rootFrame.Navigate(t, protocolArgs.Uri.Segments[1]);
+
+                Window.Current.Content = rootFrame;
+            }
+            Window.Current.Activate();
         }
     }
 }
