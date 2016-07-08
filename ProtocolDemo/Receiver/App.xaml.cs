@@ -107,13 +107,16 @@ namespace Receiver
                 var uri = protocolArgs.Uri;
 
                 var rootFrame = new Frame();
-                Window.Current.Content = rootFrame;
 
                 var page = uri.Segments[0].Trim(new Char[] { '/' });
+                
+                var navigateTo = Type.GetType("Receiver." + page) ?? typeof(MainPage);
 
-                var navigateTo = Type.GetType("Receiver." + page);
+                var parameters = (uri.Segments.Length > 1) ? uri.Segments[1] : "";
 
-                rootFrame.Navigate(navigateTo, uri.Segments[1]);
+                rootFrame.Navigate(navigateTo, parameters);
+
+                Window.Current.Content = rootFrame;
             }
             Window.Current.Activate();
         }
