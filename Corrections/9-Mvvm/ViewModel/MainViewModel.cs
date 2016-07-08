@@ -36,12 +36,13 @@ namespace _9_Mvvm.ViewModel
 
 
         private int counter;
+        private string welcomeTitle = string.Empty;
+        private bool clockRunning;
+
+        private RelayCommand showDialogCommand;
         private RelayCommand incrementCommand;
         private RelayCommand<string> navigateCommand;
-        private bool clockRunning;
         private RelayCommand sendMessageCommand;
-        private RelayCommand showDialogCommand;
-        private string welcomeTitle = string.Empty;
 
         public string Clock
         {

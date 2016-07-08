@@ -41,20 +41,21 @@ namespace _13_Database
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var fileExists = await PostHelper.CheckFileExists(App.DB_PATH);
-            if (fileExists)
-            {
+            //if (fileExists)
+            //{
                 await LoadJson();
-            }else
-            {
-                // Récupère les entrées en base
-                ((MainPageViewModel)this.DataContext).Posts = this.PostHelper.GetAll();
-            }
+            //}else
+            //{
+            //    // Récupère les entrées en base
+            //    ((MainPageViewModel)this.DataContext).Posts = this.PostHelper.GetAll();
+            //}
         }
 
         public async Task LoadJson()
         {
             using (var client = new HttpClient())
             {
+                
                 HttpResponseMessage response = await client.GetAsync(new Uri("http://jsonplaceholder.typicode.com/posts"));
 
                 if (response.IsSuccessStatusCode)
