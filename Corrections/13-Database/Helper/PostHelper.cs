@@ -14,78 +14,80 @@ namespace _13_Database.Helper
 
         public Post GetById(int postId)
         {
-            using (var Provider = new SQLiteConnection(App.DB_PATH))
+            using (var connection = new SQLiteConnection(App.DB_PATH))
             {
                 
-                var existingPost = Provider.Find<Post>(postId);
+                var existingPost = connection.Find<Post>(postId);
                 return existingPost;
             }
         }
-        // Retrieve the all post list from the database. 
+        // Recupère un post
         public ObservableCollection<Post> GetAll()
         {
-            using (var Provider = new SQLiteConnection(App.DB_PATH))
+            using (var connection = new SQLiteConnection(App.DB_PATH))
             {
-                List<Post> myCollection = Provider.Table<Post>().ToList<Post>();
+                List<Post> myCollection = connection.Table<Post>().ToList<Post>();
                 ObservableCollection<Post> PostList = new ObservableCollection<Post>(myCollection);
                 return PostList;
             }
         }
 
-        //Update existing conatct 
+        //Met à jour un post
         public void Update(Post post)
         {
-            using (var Provider = new SQLiteConnection(App.DB_PATH))
+            using (var connection = new SQLiteConnection(App.DB_PATH))
             {
-                var existingPost = Provider.Query<Post>("select * from Post where Id =" + post.Id).FirstOrDefault();
+                var existingPost = connection.Query<Post>("select * from Post where Id = ?", post.Id).FirstOrDefault();
                 if (existingPost != null)
                 {
                     existingPost.UserId = post.UserId;
                     existingPost.Title = post.Title;
                     existingPost.Body = post.Body;
-                    Provider.RunInTransaction(() =>
+                    connection.RunInTransaction(() =>
                     {
-                        Provider.Update(existingPost);
+                        connection.Update(existingPost);
                     });
                 }
             }
         }
-        // Insert the new post in the Post table. 
+
+        // Insert un post dans la table 
         public void Insert(Post newpost)
         {
-            using (var Provider = new SQLiteConnection(App.DB_PATH))
+            using (var connection = new SQLiteConnection(App.DB_PATH))
             {
-                Provider.RunInTransaction(() =>
+                connection.RunInTransaction(() =>
                 {
-                    Provider.Insert(newpost);
+                    connection.Insert(newpost);
                 });
             }
         }
 
-        //Delete specific post 
-        public void Delete(int Id)
+        // Supprime un post
+        public void Delete(int id)
         {
-            using (var Provider = new SQLiteConnection(App.DB_PATH))
+            using (var connection = new SQLiteConnection(App.DB_PATH))
             {
-                var existingPost = Provider.Query<Post>("select * from Post where Id =" + Id).FirstOrDefault();
+                var existingPost = connection.Query<Post>("select * from Post where Id = ?", id).FirstOrDefault();
                 if (existingPost != null)
                 {
-                    Provider.RunInTransaction(() =>
+                    connection.RunInTransaction(() =>
                     {
-                        Provider.Delete(existingPost);
+                        connection.Delete(existingPost);
                     });
                 }
             }
         }
-        //Delete all list or delete Post table 
+
+        // Supprime tous les posts 
         public void DeleteAll()
         {
-            using (var Provider = new SQLiteConnection(App.DB_PATH))
+            using (var connection = new SQLiteConnection(App.DB_PATH))
             {
-                Provider.DropTable<Post>();
-                Provider.CreateTable<Post>();
-                Provider.Dispose();
-                Provider.Close();
+                connection.DropTable<Post>();
+                connection.CreateTable<Post>();
+                connection.Dispose();
+                connection.Close();
             }
         }
 

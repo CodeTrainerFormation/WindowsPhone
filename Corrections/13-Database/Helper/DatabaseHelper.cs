@@ -21,6 +21,7 @@ namespace _13_Database.Helper
                     {
                         Provider.CreateTable<T>();
                     }
+                    
                 }
                 return true;
             }
